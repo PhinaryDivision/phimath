@@ -2,7 +2,7 @@
 #define PHIMATH_VEC3_H
 
 #include <iostream>
-#include <arithmetic.hpp>
+#include <phimath/arithmetic.hpp>
 
 namespace phimath {
 
