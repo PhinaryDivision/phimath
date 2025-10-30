@@ -8,8 +8,14 @@ project(
 
 include(GNUInstallDirs)
 
+option(PHIMATH_BUILD_TESTS "Build tests for phimath features" OFF)
+
 add_library(phimath INTERFACE)
 target_include_directories(phimath INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+
+if (PHIMATH_BUILD_TESTS)
+    add_subdirectory(tests)
+endif()
 
 # option(PHIMATH_INSTALL "Setup install features" ON)
 
