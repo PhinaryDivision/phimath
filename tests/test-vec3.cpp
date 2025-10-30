@@ -20,5 +20,8 @@ int main(void) {
     std::cout << u * v << "\n" << u * 5.0 << '\n' << 5.0 * u << '\n' << u / v << '\n' << u / 5.0 << '\n';
     std::cout << phimath::dot(u, v) << '\n' << phimath::cross(u, v) << '\n' << phimath::unit_vector(u) << '\n';
 
+    phimath::vec3<int> w(1, 5, 8);
+    std::cout << "w: " << w << "\nunit_vector(w): " << phimath::unit_vector(w) << "\n";
+
     return 0;
 }

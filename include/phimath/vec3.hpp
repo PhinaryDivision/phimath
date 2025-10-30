@@ -13,7 +13,7 @@ concept vectorable = requires(T a, T b) {
     { a * b} -> std::same_as<T>;
     { a / b} -> std::same_as<T>;
     { -a } -> std::same_as<T>;
-    { -b } -> std::same_as<T>;
+    { (long double)a } -> std::same_as<long double>;
 };
 
 template <typename T>
@@ -131,8 +131,9 @@ inline vec3<T> cross(const vec3<T>& u, const vec3<T>& v) {
 
 template <typename T>
 requires vectorable<T>
-inline vec3<T> unit_vector(const vec3<T>& v) {
-    return v / ((T)v.length());
+inline vec3<long double> unit_vector(const vec3<T>& v) {
+    vec3<long double> u((long double)v.e[0], (long double)v.e[1], (long double)v.e[2]);
+    return u / (u.length());
 }
 
 }
